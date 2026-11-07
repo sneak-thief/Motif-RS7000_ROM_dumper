@@ -1,8 +1,11 @@
 # ROM dumper for the Yamaha RS7000, Motif ES and Motif
 
-Reads the program and wave ROMs of your own unit over a serial cable, through the OS's built-in debug console, and
-turns the result into one image file per chip. It covers the RS7000, the Motif ES (6/7/8) and the original
-Motif (6/7/8). The rack versions are not supported.
+Reads the program and wave ROMs of your own unit over a serial cable via the OS's built-in debug console and
+turns the result into one image file per chip. 
+
+It covers the RS7000, the Motif ES (6/7/8) and the original
+Motif (6/7/8). The Motif ES Rack is not supported.
+
 
 | Unit | Status |
 |---|---|
@@ -17,7 +20,10 @@ below lists what is assumed.
 never send the console's write commands (`cb`, `cw`, `cl`) or its reset (`rs`). Don't type into a terminal on this
 port while the unit is wired up.
 
-The dumps contain Yamaha's firmware and samples: keep them for your own use.
+The dumps contain Yamaha's firmware and samples: keep them for your own use. 
+
+**Don't bother asking me for rom dumps - they're only for my personal use. Please make your own instead.**
+
 
 ## What you need
 
@@ -81,7 +87,7 @@ and `split-wave` write to `dump/chips/` for every unit unless you give `--out`.
 
 ---
 
-## RS7000 (`--target rs7000`, the default): verified on hardware
+## RS7000 (`--target rs7000`, the default): verified on hardware. Used to build the RS7007 emulator.
 
 ### Hardware
 
