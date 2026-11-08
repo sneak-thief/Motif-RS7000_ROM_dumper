@@ -1,10 +1,11 @@
 # ROM dumper for the Yamaha RS7000, Motif ES and Motif
 
-Reads the program and wave ROMs of your own unit over a serial cable via the OS's built-in debug console and
-turns the result into one image file per chip. 
+These scripts read the program and wave ROMs of your own unit over a serial cable via the OS's built-in debug console
+([README_console.md](README_console.md)) and parse the result into one image file per chip. 
 
 It covers the RS7000, the Motif ES (6/7/8) and the original
-Motif (6/7/8). The Motif ES Rack is not supported.
+Motif (6/7/8). The rack versions are not supported
+												  
 
 
 | Unit | Status |
@@ -20,10 +21,9 @@ below lists what is assumed.
 never send the console's write commands (`cb`, `cw`, `cl`) or its reset (`rs`). Don't type into a terminal on this
 port while the unit is wired up.
 
-The dumps contain Yamaha's firmware and samples: keep them for your own use. 
+The dumps contain Yamaha's firmware and samples: keep them for your own use.
 
-**Don't bother asking me for rom dumps - they're only for my personal use. Please make your own instead.**
-
+**Don't bother asking me for rom dumps - they're only for my personal use. Please make your own instead.**																										  
 
 ## What you need
 
@@ -87,7 +87,7 @@ and `split-wave` write to `dump/chips/` for every unit unless you give `--out`.
 
 ---
 
-## RS7000 (`--target rs7000`, the default): verified on hardware. Used to build the RS7007 emulator.
+## RS7000 (`--target rs7000`, the default): verified on hardware and used to build the RS7007 emulator.
 
 ### Hardware
 
@@ -96,11 +96,11 @@ Use header **CN23** (not fitted at the factory). It has 3.3 V logic:
 | CN23 pin | Signal | Connect to |
 |---|---|---|
 | 1 | +5 V | **nothing** |
-| 2 | TXD0 (unit sends) | adapter RX |
-| 3 | RXD0 (unit receives) | adapter TX |
+| 2 | TXD0 (unit sends) R148 | adapter RX |
+| 3 | RXD0 (unit receives) R149 | adapter TX |
 | 4 | GND | adapter GND |
 
-R148 (pin 2) and R149 (pin 3) are not fitted. Bridge or fit them, or solder to their CPU-side pads.
+Resistors R148 and R149 are not fitted and their pads are located on the underside of the main board. Bridge or fit them with the appropriate resistors. Alternatively, solder wires directly to the unpopulated resistor pads on the side furthest from the unpopulated CN23 connector.
 
 ### Commands
 
@@ -307,6 +307,7 @@ unreadable pages.
 | `rs7k-motif_dump-parser.py` | offline: `check-update`, `carve`, `split-wave`, `analyze-wave`, `mem-log`, `wave-log` |
 | `rs7k-motif_cns.py` | console protocol and per-unit settings, shared by both |
 | `test_sim.py` | self-test against a simulated console |
+| `README_console.md` | the RS7000 / Motif ES console: every command, its prompts, its output and its code |
 | `CHANGELOG.md` | changes |
 | `LICENSE` | MIT license |
 
