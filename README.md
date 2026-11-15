@@ -1,6 +1,6 @@
 # ROM dumper for the Yamaha RS7000, Motif ES and Motif
 
-**Solder 3 wires to your RS7000, Motif or Motif ES (TX/RX/GND) and you can dump the program & wave ROMS for personal archival purposes.** 
+**Solder 3 wires to a hidden serial port on the mainboard of your RS7000, Motif or Motif ES (TX/RX/GND) and you can dump the program & wave ROMS for personal archival purposes.** 
 
 These scripts read the program and wave ROMs of your own unit over a serial cable via the OS's built-in debug console
 ([README_console.md](README_console.md)) and parse the result into one image file per chip. 
